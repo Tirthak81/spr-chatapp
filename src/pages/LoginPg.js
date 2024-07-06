@@ -4,11 +4,11 @@ import "./loginpg.css";
 function LoginPg() {
   return (
     <div className="login-box">
-      <h1>Log in</h1>
+      <p>Log-in</p>
       <form action="login-form">
-        <label htmlFor="username">Enter your username</label>
+        <label htmlFor="username">Enter your username :</label>
         <input type="text" name="username" id="username" required />
-        <label htmlFor="password">Enter your password </label>
+        <label htmlFor="password">Enter your password :</label>
         <input type="password" name="password" id="password" required />
         <div className="login-btn">
           <button type="submit">Submit</button>
