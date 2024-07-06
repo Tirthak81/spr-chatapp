@@ -9,7 +9,7 @@ function LoginPg() {
   useEffect(() => {
     fetch("https://dummyjson.com/users")
       .then((res) => res.json())
-      .then((data) => setUserData(data.users)) // assuming the API returns an array of users
+      .then((data) => setUserData(data.users))
       .catch((err) => console.log("Failed to load users"));
   }, []);
 
@@ -30,31 +30,33 @@ function LoginPg() {
   }
 
   return (
-    <div className="login-box">
-      <p>Log-in</p>
-      <form action="login-form" onSubmit={handleLogin}>
-        <label htmlFor="username">Enter your username :</label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          value={username}
-          required
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">Enter your password :</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={password}
-          required
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className="login-btn">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+    <div className="App">
+      <div className="login-box">
+        <p>Log-in</p>
+        <form action="login-form" onSubmit={handleLogin}>
+          <label htmlFor="username">Enter your username :</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            value={username}
+            required
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label htmlFor="password">Enter your password :</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value={password}
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="login-btn">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
