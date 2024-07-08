@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./loginpg.css";
 
 function LoginPg() {
   const [userData, setUserData] = useState([]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  let navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://dummyjson.com/users")
@@ -21,6 +23,7 @@ function LoginPg() {
         alert("Log in successful!");
         setUsername("");
         setPassword("");
+        navigate("/Navbar");
       } else {
         alert("Invalid password!");
       }
