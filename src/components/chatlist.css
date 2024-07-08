@@ -1,0 +1,34 @@
+.chatlist {
+  width: 40%;
+  padding: 15px;
+  /* border: 1px solid black; */
+}
+
+.chat {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.chat img {
+  border: 1px solid rgb(197, 221, 197);
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 7px;
+}
+
+.userchatinfo {
+  display: grid;
+}
+
+.userchatinfo span {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.userchatinfo p {
+  font-size: 14px;
+  margin: 0;
+}
