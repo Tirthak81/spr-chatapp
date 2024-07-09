@@ -31,7 +31,7 @@ function MsgBox({ user }) {
     <div className="msgbox">
       <div className="chatinfo">
         <span>
-          {`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
+          {`${user.firstname.toUpperCase()} ${user.lastname.toUpperCase()}`}
         </span>
       </div>
       <div className="msgs">

@@ -1,27 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./loginpg.css";
+import UserContext from "./UserContext"; // Assuming UserContext.js is in the same directory
 
 function LoginPg() {
-  const [userData, setUserData] = useState([]);
+  const { usersData } = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-        const limitedData = data.users.slice(0, 9);
-        setUserData(limitedData);
-        console.log(limitedData); // Log the correct data here
-      })
-      .catch((err) => console.log("Failed to load users"));
-  }, []);
-
   function handleLogin(event) {
     event.preventDefault();
-    const currentUser = userData.find((user) => user.username === username);
+    const currentUser = usersData.find((user) => user.username === username);
     if (currentUser) {
       if (currentUser.password === password) {
         alert("Log in successful!");
@@ -40,7 +30,7 @@ function LoginPg() {
   return (
     <div className="login-box">
       <p>Log-in</p>
-      <form action="login-form" onSubmit={handleLogin}>
+      <form onSubmit={handleLogin}>
         <label htmlFor="username">Enter your username :</label>
         <input
           type="text"

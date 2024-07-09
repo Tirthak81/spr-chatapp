@@ -3,7 +3,7 @@ import "./homepg.css";
 import Header from "../components/Header";
 import ChatPg from "../components/ChatPg";
 
-function Navbar() {
+function HomePg() {
   return (
     <div className="homepg">
       <Header />
@@ -12,4 +12,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default HomePg;

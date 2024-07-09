@@ -15,9 +15,7 @@ function Header() {
     <div className="header">
       <div className="profile">
         <img src={currentuser.image} alt="DP" />
-        <h4>
-          {`${currentuser.firstName.toUpperCase()} ${currentuser.lastName.toUpperCase()}`}
-        </h4>
+        <h4>{`${currentuser.firstname.toUpperCase()} ${currentuser.lastname.toUpperCase()}`}</h4>
       </div>
       <h1>ChatApp</h1>
       <i className="bx bx-power-off" onClick={handleLogOut}></i>
