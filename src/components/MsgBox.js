@@ -21,7 +21,7 @@ function MsgBox({ user }) {
         <div className="msgs"></div>
         <div className="typer">
           <input type="text" className="e-input" disabled={true} />
-          <i className="bx bxs-send e-input" disabled={true} />
+          <i className="bx bxs-send" />
         </div>
       </div>
     );

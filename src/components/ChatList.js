@@ -16,7 +16,7 @@ function ChatList({ onUserClick }) {
       console.log("start", usersData);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [usersData]);
 
   const handleClick = (user) => {
     onUserClick(user);
