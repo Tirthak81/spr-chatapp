@@ -7,7 +7,7 @@ function Header() {
   const navigate = useNavigate();
 
   function handleLogOut() {
-    sessionStorage.removeItem("user");
+    sessionStorage.clear();
     navigate("/");
   }
 
@@ -16,8 +16,7 @@ function Header() {
       <div className="profile">
         <img src={currentuser.image} alt="DP" />
         <h4>
-          {`${currentuser.firstName.toUpperCase()}` +
-            ` ${currentuser.lastName.toUpperCase()}`}
+          {`${currentuser.firstName.toUpperCase()} ${currentuser.lastName.toUpperCase()}`}
         </h4>
       </div>
       <h1>ChatApp</h1>

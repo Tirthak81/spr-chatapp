@@ -1,17 +1,13 @@
 import React from "react";
 import "./homepg.css";
 import Header from "../components/Header";
-import MsgBox from "../components/MsgBox";
-import ChatList from "../components/ChatList";
+import ChatPg from "../components/ChatPg";
 
 function Navbar() {
   return (
     <div className="homepg">
       <Header />
-      <div className="chatpg">
-        <ChatList />
-        <MsgBox />
-      </div>
+      <ChatPg />
     </div>
   );
 }

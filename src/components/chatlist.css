@@ -1,7 +1,6 @@
 .chatlist {
   width: 40%;
   padding: 15px;
-  /* border: 1px solid black; */
 }
 
 .chat {
@@ -11,7 +10,7 @@
 }
 
 .chat img {
-  border: 1px solid rgb(197, 221, 197);
+  border: 1px solid rgb(34, 34, 34);
   width: 40px;
   height: 40px;
   object-fit: cover;
@@ -21,6 +20,8 @@
 
 .userchatinfo {
   display: grid;
+  text-align: justify;
+  cursor: pointer;
 }
 
 .userchatinfo span {

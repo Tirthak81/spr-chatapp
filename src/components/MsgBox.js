@@ -1,45 +1,51 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
 import "./msgbox.css";
-// import { useState, useEffect, useRef } from "react";
+import Message from "./Message";
 
-function MsgBox() {
-  // const [message, setMessage] = useState([]);
-  // const [newMessage, setNewMessage] = useState("");
-  // const inputRef = useRef(null);
+function MsgBox({ user }) {
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState("");
 
-  // useEffect(() => {
-  //   inputRef.current.focus();
-  // }, []);
+  const handleSendMessage = () => {
+    if (newMessage.trim() !== "") {
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
+      setNewMessage("");
+    }
+  };
 
-  // function sentMessage() {
-  //   setMessage([...message, newMessage]);
-  //   setNewMessage("");
-  // }
+  if (!user) {
+    return (
+      <div className="msgbox">
+        <div className="chatinfo"></div>
+        <div className="msgs"></div>
+        <div className="typer">
+          <input type="text" className="e-input" disabled={true} />
+          <i className="bx bxs-send e-input" disabled={true} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="msgbox">
       <div className="chatinfo">
-        <span>username</span>
+        <span>
+          {`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
+        </span>
       </div>
       <div className="msgs">
-        {/* {message.map((msg, idx) => {
-          return <p key={idx}>{msg}</p>;
-        })} */}
-        <p>message</p>
-        <p>message</p>
-        <p>message</p>
-        <p>message</p>
-        <p>message</p>
+        <Message messages={messages} />
       </div>
       <div className="typer">
         <input
           type="text"
           name="inputmsg"
           id="inputmsg"
-          // value={newMessage}
-          // onCange={(e) => setNewMessage(e.target.value)}
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
         />
-        <i className="bx bxs-send"></i>
+        <i className="bx bxs-send" onClick={handleSendMessage} />
       </div>
     </div>
   );

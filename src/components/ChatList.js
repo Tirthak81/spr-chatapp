@@ -1,31 +1,40 @@
 import React, { useEffect, useState } from "react";
 import "./chatlist.css";
 
-function ChatList() {
+function ChatList({ onUserClick }) {
   const [users, setUsers] = useState([]);
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  // eslint-disable-next-line no-unused-vars
+  const [loggedInUser, setLoggedInUser] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+  );
+
+  // eslint-disable-next-line no-unused-vars
 
   useEffect(() => {
-    setLoggedInUser(JSON.parse(sessionStorage.getItem("user")));
     fetch("https://dummyjson.com/users")
       .then((res) => res.json())
       .then((data) => {
-        // Slice the array to get only the first 9 users
         const limitedData = data.users.slice(0, 9);
-        // Set users array after filtering out the loggedInUser
         setUsers(limitedData.filter((user) => user.id !== loggedInUser?.id));
       })
       .catch((err) => console.log("Failed to load users"));
-  }, [loggedInUser]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleClick = (user) => {
+    onUserClick(user);
+  };
 
   return (
     <div className="chatlist">
       {users.map((user) => (
-        <div key={user.id} className="chat">
+        <div key={user.id} className="chat" onClick={() => handleClick(user)}>
           <img src={user.image} alt="DP" />
           <div className="userchatinfo">
-            <span>{user.username}</span>
-            <p>chat here</p> {/* Placeholder text or component */}
+            <span>
+              {`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
+            </span>
+            <p>last message</p>
           </div>
         </div>
       ))}
@@ -34,23 +43,3 @@ function ChatList() {
 }
 
 export default ChatList;
-
-// import React from "react";
-// import "./chatlist.css";
-
-// function ChatList() {
-//   return (
-//     <div className="chatlist">
-//       {/* repeat this div with classname chat for user mapping */}
-//       <div className="chat">
-//         <img src="" alt="DP" />
-//         <div className="userchatinfo">
-//           <span>username</span>
-//           <p>chat heree</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default ChatList;
