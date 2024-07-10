@@ -1,0 +1,22 @@
+.msgs {
+  margin: 0;
+  width: 100%;
+  height: 80%;
+  display: grid;
+  align-content: baseline;
+  overflow-y: auto;
+}
+
+.msgs p {
+  margin: 4px;
+}
+
+.sentMessage {
+  color: blue;
+  text-align: end;
+}
+
+.recivedMessage {
+  color: red;
+  text-align: justify;
+}
