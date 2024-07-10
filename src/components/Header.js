@@ -3,11 +3,11 @@ import "./header.css";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
-  const currentuser = JSON.parse(sessionStorage.getItem("user"));
+  const currentuser = JSON.parse(localStorage.getItem("loggedInUser"));
   const navigate = useNavigate();
 
   function handleLogOut() {
-    sessionStorage.clear();
+    localStorage.removeItem("loggedInUser");
     navigate("/");
   }
 

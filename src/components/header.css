@@ -5,6 +5,8 @@
   background-color: darkgrey;
   height: 12%;
   border-bottom: 3px solid black;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 .profile {
@@ -26,7 +28,7 @@
 }
 
 .bx-power-off {
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
   margin-right: 10px;
 }

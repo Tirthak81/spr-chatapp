@@ -4,10 +4,10 @@ import "./msgbox.css";
 import Message from "./Message";
 import { storeMessage, getMessages } from "./MessageService";
 
-function MsgBox({ user }) {
+const MsgBox = React.memo(({ user }) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const loggedInUser = JSON.parse(sessionStorage.getItem("user"));
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
   useEffect(() => {
     // Load messages from storage when component mounts
@@ -28,9 +28,9 @@ function MsgBox({ user }) {
       };
 
       setMessages((prevMessages) => [...prevMessages, message]);
-      // Store messages in local storage
+
       storeMessage(message);
-      // Clear input field
+
       setNewMessage("");
     }
   };
@@ -48,7 +48,7 @@ function MsgBox({ user }) {
       </div>
       <Message messages={messages} user={user} loggedInUser={loggedInUser} />
       <div className="typer">
-        <form action="#" onSubmit={handleSendMessage}>
+        <form onSubmit={handleSendMessage}>
           <input
             type="text"
             name="inputmsg"
@@ -63,6 +63,5 @@ function MsgBox({ user }) {
       </div>
     </div>
   );
-}
-
+});
 export default MsgBox;

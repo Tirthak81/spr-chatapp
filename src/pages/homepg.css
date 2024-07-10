@@ -2,6 +2,7 @@
   width: 60rem;
   height: 90.5vh;
   border: 1px solid black;
+  border-radius: 25px;
 }
 
 .chatpg {
@@ -9,4 +10,6 @@
   display: flex;
   height: calc(90vh - 12%);
   width: 100%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }

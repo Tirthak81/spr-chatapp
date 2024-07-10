@@ -23,15 +23,29 @@
   align-items: center;
 }
 
+.typer form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .typer input {
   border: none;
-  border-bottom: 1px solid rgb(5, 5, 4);
+  border-radius: 25px;
+  /* border-bottom: 1px solid rgb(5, 5, 4); */
   padding: 10px;
-  width: 30rem;
-  opacity: 80%;
+  width: 29rem;
+  background-color: rgba(240, 248, 255, 0.637);
+  /* background: none; */
+}
+
+.typer button {
+  margin-left: 8px;
+  background: none;
+  border: none;
 }
 
 .typer i {
-  font-size: 25px;
+  font-size: 35px;
   cursor: pointer;
 }

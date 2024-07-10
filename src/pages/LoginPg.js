@@ -17,7 +17,7 @@ function LoginPg() {
         alert("Log in successful!");
         setUsername("");
         setPassword("");
-        sessionStorage.setItem("user", JSON.stringify(currentUser));
+        localStorage.setItem("loggedInUser", JSON.stringify(currentUser));
         navigate("/HomePg");
       } else {
         alert("Invalid password!");

@@ -5,7 +5,7 @@ import UserContext from "../pages/UserContext";
 function ChatList({ onUserClick }) {
   const { usersData } = useContext(UserContext);
   const [otherUsers, setOtherUsers] = useState([]);
-  const loggedInUser = JSON.parse(sessionStorage.getItem("user"));
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
   useEffect(() => {
     if (usersData && loggedInUser) {
@@ -30,7 +30,6 @@ function ChatList({ onUserClick }) {
             <img src={user.image} alt="DP" />
             <div className="userchatinfo">
               <span>{`${user.firstname.toUpperCase()} ${user.lastname.toUpperCase()}`}</span>
-              <p>last message</p>
             </div>
           </div>
         ))

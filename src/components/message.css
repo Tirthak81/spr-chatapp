@@ -12,11 +12,11 @@
 }
 
 .sentMessage {
-  color: blue;
+  color: rgb(37, 1, 104);
   text-align: end;
 }
 
 .recivedMessage {
-  color: red;
+  color: rgb(44, 3, 109);
   text-align: justify;
 }
